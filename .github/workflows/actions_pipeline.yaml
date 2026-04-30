@@ -1,0 +1,28 @@
+name: Build and Release HACS Zip
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Inject domains
+        run: |
+          sed -i "s/__DESI_WEB_DOMAIN__/${{ secrets.DESI_WEB_DOMAIN }}/g" custom_components/desi/const.py
+          sed -i "s/__DESI_API_DOMAIN__/${{ secrets.DESI_API_DOMAIN }}/g" custom_components/desi/const.py
+
+      - name: create zip file
+        run: |
+          cd custom_components
+          zip -r ../desi-home-assistant.zip desi/
+          cd ..
+
+      - name: Upload Github release 
+        uses: softprops/action-gh-release@v2
+        with:
+          files: desi-home-assistant.zip

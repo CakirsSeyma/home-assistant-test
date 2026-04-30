@@ -1,0 +1,7 @@
+{
+    "name": "Desi Smart",
+    "render_readme": true,
+    "zip_release": true,
+    "filename": "desi-home-assistant.zip",
+    "domain": "desi"
+}

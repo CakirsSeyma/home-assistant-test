@@ -29,7 +29,6 @@ jobs:
 
       - name: Create ZIP File for HACS
         run: |
-          cd custom_components/desi
           zip -r ../../desi-home-assistant.zip .
 
       - name: Upload to GitHub Release

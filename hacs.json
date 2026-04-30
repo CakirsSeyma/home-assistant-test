@@ -3,5 +3,6 @@
     "render_readme": true,
     "zip_release": true,
     "filename": "desi-home-assistant.zip",
-    "domain": "desi"
+    "domain": "desi",
+    "homeassistant": "2023.1.0"
 }

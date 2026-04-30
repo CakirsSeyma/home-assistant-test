@@ -29,27 +29,11 @@ jobs:
 
       - name: Create ZIP File for HACS
         run: |
-          # 1. GitHub Tag'inden versiyon adını al
-          TAG_NAME=${GITHUB_REF#refs/tags/}
-          
-          # 2. Klasör adını belirle (home-assistant-test-v.1.0.3 formatında)
-          FOLDER_NAME="home-assistant-test-$TAG_NAME"
-          
-          echo "Oluşturulacak klasör: $FOLDER_NAME"
-          
-          # 3. Geçici bir dizinde ana klasörü oluştur
-          mkdir -p temp_build_dir/$FOLDER_NAME
-          
-          # 4. Projedeki her şeyi (.git ve geçici dizin hariç) bu klasörün içine kopyala
-          rsync -av --exclude='temp_build_dir' --exclude='.git' . temp_build_dir/$FOLDER_NAME/
-          
-          # 5. Zipleme: Dışarıya HACS'ın aradığı sabit isimle (desi-home-assistant.zip) çıkartıyoruz
-          cd temp_build_dir
-          zip -r ../desi-home-assistant.zip $FOLDER_NAME/
-          cd ..
+          # DİKKAT: Hiçbir alt klasör (home-assistant-test-v...) OLUŞTURMUYORUZ!
+          # Bulunduğumuz dizindeki tüm dosyaları (.git hariç) doğrudan zipin içine atıyoruz.
+          zip -r desi-home-assistant.zip . -x "*.git*"
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          # Sabit isimli dosyamızı yüklüyoruz
           files: desi-home-assistant.zip

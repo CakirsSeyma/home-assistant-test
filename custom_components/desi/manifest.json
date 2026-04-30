@@ -8,11 +8,11 @@
     "dependencies": [
         "http"
     ],
-    "documentation": "https://github.com/Desi-Smart-RD/desi-home-assistant",
+    "documentation": "https://github.com/CakirsSeyma/home-assistant-test",
     "iot_class": "cloud_push",
-    "issue_tracker": "https://github.com/Desi-Smart-RD/desi-home-assistant/issues",
+    "issue_tracker": "https://github.com/CakirsSeyma/home-assistant-test/issues",
     "requirements": [
         "PyJWT==2.10.1"
     ],
-    "version": "1.0.2"
+    "version": "1.0.0"
 }

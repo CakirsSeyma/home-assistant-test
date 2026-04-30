@@ -1,8 +1,10 @@
 {
     "name": "Desi Smart",
+    "content_in_root": false,
     "render_readme": true,
     "zip_release": true,
     "filename": "desi-home-assistant.zip",
     "domain": "desi",
-    "homeassistant": "2023.1.0"
+    "homeassistant": "2023.1.0",
+    "iot_class": "cloud_polling"
 }

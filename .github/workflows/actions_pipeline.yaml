@@ -29,7 +29,8 @@ jobs:
 
       - name: Create ZIP File for HACS
         run: |
-          zip -r ../../desi-home-assistant.zip .
+          # Bulunulan dizindeki tüm dosyaları (git dosyaları hariç) mevcut dizindeki zip'e atar
+          zip -r desi-home-assistant.zip . -x "*.git*"
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
